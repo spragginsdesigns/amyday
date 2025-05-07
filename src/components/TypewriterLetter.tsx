@@ -102,6 +102,19 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 								✨ A living tribute ✨
 							</span>
 						</motion.div>
+
+						{/* Signature */}
+						<motion.div
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.7, delay: 1.2 }} // Slightly reduced delay
+							className="mt-6 text-center"
+						>
+							{/* Refined font stack for better cursive rendering */}
+							<p className="font-['Brush_Script_MT','Segoe_Script','Snell_Roundhand',cursive] text-lg sm:text-xl text-blush/90">
+								By: Austin Spraggins
+							</p>
+						</motion.div>
 					</motion.div>
 				)}
 			</motion.div>
