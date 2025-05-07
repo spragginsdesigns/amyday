@@ -1,8 +1,8 @@
 # 🌷 AmyDay – A Living Tribute
 
-**AmyDay** is a private, interactive web experience built as a heartfelt gift for Amy Taylor — a celebration of her strength, resilience, humor, motherhood, and faith. What began as a Mother’s Day tribute has become a living memory capsule: a quiet place of encouragement, reflection, and joy.
+**AmyDay** is a private, interactive web experience built as a heartfelt gift for Amy Taylor — a celebration of her strength, resilience, humor, motherhood, and faith. What began as a Mother's Day tribute has become a living memory capsule: a quiet place of encouragement, reflection, and joy.
 
-This app is deeply personal. It’s not just about one holiday — it’s about reminding Amy that she is loved, seen, and admired… always.
+This app is deeply personal. It's not just about one holiday — it's about reminding Amy that she is loved, seen, and admired… always.
 
 ---
 
@@ -26,7 +26,7 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
   A long-press interaction unveils a hidden, encouraging truth.
 
 - **Compliment Generator**
-  Press a button to receive one of many affirmations, reasons she’s cherished.
+  Press a button to receive one of many affirmations, reasons she's cherished.
 
 - **Optional Voiceover**
   Hear the letter read aloud with soft background music (if enabled).
@@ -38,13 +38,16 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
   Gentle reminders pulled from a curated list of verses and thoughts.
 
 - **Encouragement Vault**
-  Uplifting notes Amy can open on hard days (e.g. “Open if you're overwhelmed”).
+  Uplifting notes Amy can open on hard days (e.g. "Open if you're overwhelmed").
 
 - **Mini Memory Moments**
   Short vignettes from shared conversations or silly memories — no photos needed.
 
+- **Dark Humor Generator**
+  Tap for sarcastic affirmations and meme-worthy quips tailored to Amy’s signature humor style. Because healing sometimes sounds like, “I’m losing it, but make it funny.”
+
 - **Mode Toggle**
-  Switch between themes like “Mother’s Day”, “Laugh Corner”, “Faith & Peace”.
+  Switch between themes like "Mother's Day", "Laugh Corner", "Faith & Peace".
 
 - **Private Garden Page (Optional)**
   Where future prayers, journal entries, or audio reflections can live.
@@ -55,8 +58,8 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS, Framer Motion
-- **UI Components:** Shadcn UI (optional), Canvas API
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
 - **Deployment:** Vercel
 
 ---
@@ -66,50 +69,70 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 ```bash
 amyday/
 ├── public/               # Static assets (images, audio)
+│   └── audio/            # Audio files for voiceover and music
 ├── src/
 │   ├── app/              # App entry point (App Router)
+│   │   ├── globals.css   # Global styles
 │   │   └── page.tsx      # Main tribute page
 │   ├── components/       # Reusable UI elements
+│   │   ├── HeroSection.tsx
 │   │   ├── TypewriterLetter.tsx
-│   │   ├── RevealMessage.tsx
+│   │   ├── HoldToRevealMessage.tsx
 │   │   ├── ComplimentGenerator.tsx
-│   │   ├── Confetti.tsx
-│   │   ├── VoicePlayer.tsx
-│   │   ├── BlessingCycler.tsx
-│   │   └── MemoryMoment.tsx
-│   ├── lib/              # Content and logic
-│   │   ├── compliments.ts
-│   │   ├── messages.ts
-│   │   ├── verses.ts
-│   │   └── memories.ts
-│   └── styles/
+│   │   └── VoicePlayer.tsx
+│   └── lib/              # Content and logic
+│       ├── compliments.ts
+│       └── messages.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
 └── README.md
-````
+```
 
 ---
 
 ## 🌈 Design Aesthetic
 
-* Subtle gradients, heartwarming animations, soft glows
+* Soft gradients, heartwarming animations, soft glows
 * Glassmorphism touches, elegant fonts, mobile-first
-* Soft tones: lilac, blush, ivory, and muted rose
+* Color palette: lilac, blush, ivory, and muted rose on a dark background
 
 ---
 
-## 🚀 Getting Started (Completed)
+## 🚀 Installation & Development
 
-From your code root:
-
+1. Clone this repository:
 ```bash
-pnpm create next-app amyday -- --ts --app --tailwind --eslint --src-dir
+git clone https://github.com/austin/amyday.git
 cd amyday
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Create audio files:
+   - Add voice recording to `/public/audio/letter.mp3`
+   - Add background music to `/public/audio/background.mp3`
+
+4. Run the development server:
+```bash
 pnpm dev
 ```
 
-Then open:
-[http://localhost:3000](http://localhost:3000)
+5. View the site at [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🚀 Deployment
+
+Deploy to Vercel:
+
+```bash
+vercel
+```
+
+Or connect your GitHub repository to Vercel for automatic deployments.
 
 ---
 
