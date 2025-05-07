@@ -29,7 +29,7 @@ export default function Home() {
 						Meet Dark Amy AI
 					</h2>
 					<p className="text-center text-neutral-400 mb-8">
-						Austin built this companion just for you. It has your sense of humor.
+						Austin built me just for you.
 					</p>
 					<AIChat />
 				</div>

@@ -60,7 +60,7 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
-- **AI Integration:** OpenAI API (GPT-3.5 Turbo)
+- **AI Integration:** OpenAI API (GPT-4o)
 - **Deployment:** Vercel
 
 ---

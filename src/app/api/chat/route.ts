@@ -74,10 +74,10 @@ export async function POST(req: NextRequest) {
     };
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       messages: [darkHumorSystemMessage, ...messages],
       temperature: 0.8,
-      max_tokens: 256,
+      max_tokens: 700,
     });
 
     const assistantMessage = response.choices[0].message.content;

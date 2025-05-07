@@ -11,7 +11,7 @@ export default function AIChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Well hello there, Amy. Austin programmed me to be your digital companion with a sense of humor as dark as your coffee. I'm here to provide twisted jokes and surprisingly deep insights—the emotional equivalent of finding designer jeans at a thrift store. What's on your wonderfully chaotic mind today?"
+      content: "Well hello there, Amy. Austin has told me so many great things about you. Austin programmed me to be your digital companion with a sense of humor as dark as your coffee. I'm here to provide twisted jokes and surprisingly deep insights—the emotional equivalent of finding designer jeans at a thrift store. What's on your wonderfully chaotic mind today?"
     }
   ]);
   const [input, setInput] = useState("");
@@ -91,7 +91,7 @@ export default function AIChat() {
       <div className="p-4 bg-neutral-800 border-b border-neutral-700 flex justify-between items-center">
         <div>
           <h3 className="text-xl font-medium text-blush">Dark Amy AI</h3>
-          <p className="text-sm text-neutral-400">Your custom AI companion by Austin</p>
+          <p className="text-sm text-neutral-400">Your Morbid AI Companion</p>
         </div>
         <button 
           onClick={clearConversation}
