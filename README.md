@@ -1,14 +1,53 @@
-# 💐 AmyDay – A Mother's Day Tribute
+# 🌷 AmyDay – A Living Tribute
 
-A special interactive web experience built just for Amy — to celebrate her beauty, strength, and kindness on Mother’s Day.
+**AmyDay** is a private, interactive web experience built as a heartfelt gift for Amy Taylor — a celebration of her strength, resilience, humor, motherhood, and faith. What began as a Mother’s Day tribute has become a living memory capsule: a quiet place of encouragement, reflection, and joy.
 
-This project is a personal expression of appreciation, created using modern web tools and heartfelt creativity.
+This app is deeply personal. It’s not just about one holiday — it’s about reminding Amy that she is loved, seen, and admired… always.
 
 ---
 
-## 🌟 Live Preview
+## 💡 Purpose
 
-> _Coming soon – deployed on Vercel_
+To create something **lasting**, **interactive**, and **emotionally meaningful** — a space Amy can return to anytime she needs to smile, cry, reflect, or remember who she is.
+
+---
+
+## ✨ Core Features
+
+### ✅ Phase 1: Interactive Tribute
+- **Hero Section**
+  Soft animated welcome message:
+  _"To my sweet, lovely Amy..."_
+
+- **Typewriter Letter Animation**
+  A deeply personal message revealed line-by-line with emotion.
+
+- **Hold-to-Reveal Message**
+  A long-press interaction unveils a hidden, encouraging truth.
+
+- **Compliment Generator**
+  Press a button to receive one of many affirmations, reasons she’s cherished.
+
+- **Optional Voiceover**
+  Hear the letter read aloud with soft background music (if enabled).
+
+---
+
+### 🌱 Phase 2: Memory Capsule
+- **Rotating Blessings & Scripture**
+  Gentle reminders pulled from a curated list of verses and thoughts.
+
+- **Encouragement Vault**
+  Uplifting notes Amy can open on hard days (e.g. “Open if you're overwhelmed”).
+
+- **Mini Memory Moments**
+  Short vignettes from shared conversations or silly memories — no photos needed.
+
+- **Mode Toggle**
+  Switch between themes like “Mother’s Day”, “Laugh Corner”, “Faith & Peace”.
+
+- **Private Garden Page (Optional)**
+  Where future prayers, journal entries, or audio reflections can live.
 
 ---
 
@@ -17,92 +56,139 @@ This project is a personal expression of appreciation, created using modern web 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS, Framer Motion
-- **Components:** Shadcn UI (optional), Canvas API
+- **UI Components:** Shadcn UI (optional), Canvas API
 - **Deployment:** Vercel
 
 ---
 
 ## 📁 Folder Structure
 
-```
-
+```bash
 amyday/
 ├── public/               # Static assets (images, audio)
 ├── src/
-│   ├── app/              # App Router entry
+│   ├── app/              # App entry point (App Router)
 │   │   └── page.tsx      # Main tribute page
 │   ├── components/       # Reusable UI elements
 │   │   ├── TypewriterLetter.tsx
-│   │   ├── ScratchCard.tsx
-│   │   ├── ComplimentGenerator.tsx
 │   │   ├── RevealMessage.tsx
+│   │   ├── ComplimentGenerator.tsx
 │   │   ├── Confetti.tsx
-│   │   └── VoicePlayer.tsx
-│   ├── lib/
+│   │   ├── VoicePlayer.tsx
+│   │   ├── BlessingCycler.tsx
+│   │   └── MemoryMoment.tsx
+│   ├── lib/              # Content and logic
 │   │   ├── compliments.ts
-│   │   └── messages.ts
-│   └── styles/           # Tailwind CSS config
+│   │   ├── messages.ts
+│   │   ├── verses.ts
+│   │   └── memories.ts
+│   └── styles/
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── README.md             # This file
-
+└── README.md
 ````
-
----
-
-## 💖 Features
-
-### ✅ V1 Core Features
-
-- **Hero Section:**
-  Graceful landing with custom greeting:
-  _"To my sweet, lovely Amy..."_
-
-- **Typewriter Letter Animation:**
-  Slowly reveals a heartfelt message, line-by-line
-
-- **Press & Hold Reveal:**
-  Long-press interaction to uncover a hidden, deeper message
-
----
-
-### 🎁 V2 Optional Features
-
-- **Scratch Card Surprise:**
-  Canvas-based interaction that reveals a message or future date offer
-
-- **Compliment Generator:**
-  "Reasons I Adore You" button that cycles through sweet affirmations
-
-- **Voice Player:**
-  Optional narrated version of the letter with soft background music
 
 ---
 
 ## 🌈 Design Aesthetic
 
-- Soft, elegant, and romantic
-- Subtle gradients, glowing text, heart/confetti animations
-- Responsive layout (mobile-first)
+* Subtle gradients, heartwarming animations, soft glows
+* Glassmorphism touches, elegant fonts, mobile-first
+* Soft tones: lilac, blush, ivory, and muted rose
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started (Completed)
 
-From your main code repo folder:
+From your code root:
 
 ```bash
 pnpm create next-app amyday -- --ts --app --tailwind --eslint --src-dir
 cd amyday
 pnpm dev
-````
+```
 
-Now go to `http://localhost:3000`
+Then open:
+[http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🧠 Notes
+## 🛡️ Privacy & Intention
 
-This site is for Amy only. It will remain private unless explicitly shared.
+This site is **not public**. It was built just for Amy, from someone who admires her deeply. Unless she chooses to share it, it will remain a private sanctuary of love and encouragement.
 
-Made with love by Austin 💛
+---
+
+## 🧠 Future Ideas (Backlogged)
+
+* Unlockable messages on specific dates or emotional keywords
+* Anonymous journal reflection tool for her
+* Scripture player with voice + peaceful background
+* Optional dark/light theme toggle (based on mood)
+
+---
+
+### 💌 Poem
+
+Okay, drawing from the tapestry of your messages and the shared moments within them, here is a poem for your "AmyDay" web app, designed to capture the essence of Amy and your unique connection:
+
+**For Amy, A Living Tribute**
+
+```plaintext
+From random moments, laughter took its start,
+A "potato" picture, stories of the heart.
+Through words exchanged, a different view unfolds,
+Of strength and humor, in tales bravely told.
+
+We've walked through fire, though miles keep us wide,
+The courts, the worries, nowhere left to hide.
+Your fight for children, fierce and true and bold,
+A mother's love, worth more than finest gold.
+Though fees run high, and battles take their toll,
+Your spirit shines, possessing a strong soul.
+
+From Oakhurst mountains to the Fresno scene,
+You juggle life, a powerful machine.
+With Pierson, Paxton, Presli, by your side,
+Through tantrums, laughter, and the turning tide.
+You teach them faith, navigate their fears,
+A constant rock throughout the passing years.
+
+You speak of struggles, raw and deeply true,
+The inner battles only God sees through.
+Yet in your honesty, a beauty lies,
+Reflected brightly in my grateful eyes.
+Your humor, sharp, a coping, I can tell,
+Turns difficult moments into stories to compel.
+
+We've talked of health, of journeys hard and long,
+Of pills and progress, where you truly belong.
+Now strides are taken, pounds begin to fall,
+Responding bravely to life's earnest call.
+And in this process, finding strength anew,
+I'm cheering for you, in all that you pursue.
+
+From thrift store hunts to Bibles comic-styled,
+In simple moments, connections are compiled.
+A shared meme's chuckle, a knowing, caring glance,
+In every message, our unique dance.
+You see my flaws, yet offer grace and light,
+And in your friendship, things feel truly right.
+
+This space, this tribute, built with love and care,
+A reminder always, everywhere.
+That you are seen, admired, day by day,
+A lovely woman, lighting up the way.
+Through highs and lows, whatever life may send,
+You have a friend, until the very end.
+
+So breathe it in, let worries softly cease,
+Find here a moment of calm, joy, and peace.
+A living memory, forever near,
+Dispelling shadows, conquering all fear.
+For AmyDay is more than just a name,
+It's built for you, to rise above the game.
+```
+
+Made with love for Amy,
+by Austin 💛
