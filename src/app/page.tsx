@@ -20,18 +20,26 @@ export default function Home() {
 				<HeroSection />
 
 				{/* AI Chat - Custom built by Austin */}
-				<div className="my-16 sm:my-12 relative">
+				<div className="my-16 sm:my-24 relative">
 					<hr className="border-neutral-700/50 my-12 sm:my-16" />
-					<div className="absolute -top-3 right-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs px-3 py-1 rounded-full text-white font-medium animate-pulse">
+					<div className="absolute -top-3 right-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs px-3 py-1 rounded-full text-white font-medium animate-pulse shadow-glow">
 						New!
 					</div>
 					<h2 className="text-2xl sm:text-3xl font-serif text-center text-blush mb-4 tracking-wider">
 						Meet Dark Amy AI
 					</h2>
-					<p className="text-center text-sm sm:text-base text-neutral-400 mb-8 px-4 sm:px-0">
-						Austin built me just for you.
+					<p className="text-center text-sm sm:text-base text-neutral-400 mb-8 max-w-lg mx-auto">
+						Austin built me with a touch of your darkness.<br></br>
+						<span className="block mt-2 italic">
+							Talk to me anytime... if you&apos;re brave enough.
+						</span>
 					</p>
-					<AIChat />
+					<div className="glassmorphism rounded-lg p-1 border border-blush/30 shadow-xl">
+						<AIChat />
+					</div>
+					<p className="text-xs text-center text-neutral-500 mt-4 italic">
+						Your conversations are private and not stored anywhere
+					</p>
 				</div>
 
 				{/* Letter Section */}
