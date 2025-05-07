@@ -31,6 +31,9 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 - **Dark Humor Generator**
   Tap for sarcastic affirmations and meme-worthy quips tailored to Amy's signature humor style. Because healing sometimes sounds like, "I'm losing it, but make it funny."
 
+- **Dark Amy AI**
+  A custom AI chat companion with Amy's unique blend of dark humor, sarcasm, and emotional intelligence. Powered by OpenAI, this interactive feature provides personalized responses that reference shared experiences and inside jokes while maintaining her authentic voice.
+
 ---
 
 ### 🌱 Future Enhancements
@@ -57,6 +60,7 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
+- **AI Integration:** OpenAI API (GPT-3.5 Turbo)
 - **Deployment:** Vercel
 
 ---
@@ -69,9 +73,12 @@ amyday/
 │   └── audio/            # Audio files for background music (if any)
 ├── src/
 │   ├── app/              # App entry point (App Router)
+│   │   ├── api/          # API routes
+│   │   │   └── chat/     # AI chat endpoint
 │   │   ├── globals.css   # Global styles
 │   │   └── page.tsx      # Main tribute page
 │   ├── components/       # Reusable UI elements
+│   │   ├── AIChat.tsx    # Custom AI chat interface
 │   │   ├── HeroSection.tsx
 │   │   ├── TypewriterLetter.tsx
 │   │   ├── HoldToRevealMessage.tsx
@@ -143,6 +150,7 @@ This site is **not public**. It was built just for Amy, from someone who admires
 * Scripture player with peaceful background
 * Optional dark/light theme toggle (based on mood)
 * Audio messages or voice notes for personalized encouragement
+* AI conversation analysis to suggest personalized encouragement
 
 ---
 
