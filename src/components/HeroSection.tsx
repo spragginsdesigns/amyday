@@ -15,7 +15,7 @@ const HeroSection: React.FC = () => {
 				}}
 			>
 				<motion.h1
-					className="text-5xl font-serif text-blush mb-6"
+					className="text-5xl font-dancing-script text-blush mb-6 tracking-wider"
 					initial={{ opacity: 0, filter: "blur(8px)" }}
 					animate={{ opacity: 1, filter: "blur(0px)" }}
 					transition={{
@@ -23,8 +23,9 @@ const HeroSection: React.FC = () => {
 						ease: "easeOut",
 						delay: 0.3,
 					}}
+					style={{ fontFamily: "var(--font-dancing-script)", textShadow: "0 0 15px rgba(212, 137, 168, 0.3)" }}
 				>
-					To my sweet, lovely Amy...
+					My Lovely Sweet Amy
 				</motion.h1>
 
 				<motion.div

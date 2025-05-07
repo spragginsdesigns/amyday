@@ -13,6 +13,8 @@
 	/* Typography */
 	--font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
 	--font-mono: "Geist Mono", ui-monospace, monospace;
+	--font-dancing-script: "Dancing Script", cursive;
+	--font-lobster: "Lobster", cursive;
 }
 
 /* Base styles */
@@ -39,4 +41,13 @@ body {
 /* Custom component styles */
 .glassmorphism {
 	@apply bg-card-bg backdrop-blur-xs border border-gray-700 rounded-lg shadow-lg;
+}
+
+/* Font classes */
+.font-dancing-script {
+	font-family: var(--font-dancing-script);
+}
+
+.font-lobster {
+	font-family: var(--font-lobster);
 }
