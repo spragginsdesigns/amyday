@@ -46,13 +46,13 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 			result.push(
 				<motion.div
 					key={i}
-					className="mb-8 text-center leading-relaxed stanza"
+					className="mb-6 sm:mb-8 text-center stanza leading-normal"
 					initial={{ opacity: 0.6 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.5, delay: i * 0.2 }}
 				>
 					{stanzaText.split("\n").map((line, lineIndex) => (
-						<div key={lineIndex} className="py-1">
+						<div key={lineIndex} className="py-0.5">
 							{line}
 						</div>
 					))}
@@ -69,19 +69,19 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 	return (
 		<AnimatePresence>
 			<motion.div
-				className="p-8 my-8 glassmorphism rounded-lg max-w-3xl mx-auto border border-blush/20"
+				className="p-6 sm:p-8 my-8 glassmorphism rounded-lg max-w-3xl mx-auto border border-blush/20"
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
 			>
-				<div className="text-center mb-8">
-					<h2 className="text-2xl font-serif text-blush mb-2">
+				<div className="text-center mb-6 sm:mb-8">
+					<h2 className="text-xl sm:text-2xl font-serif text-blush mb-2">
 						A Letter For You
 					</h2>
-					<div className="w-16 h-1 bg-blush/40 mx-auto rounded-full"></div>
+					<div className="w-12 sm:w-16 h-1 bg-blush/40 mx-auto rounded-full"></div>
 				</div>
 
-				<div className="font-serif text-lg md:text-xl leading-loose text-ivory/90 poem-content">
+				<div className="font-serif text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose text-ivory/90 poem-content">
 					{formattedDisplayedText()}
 				</div>
 
@@ -90,7 +90,7 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.5, delay: 0.5 }}
-						className="mt-10 flex flex-col items-center"
+						className="mt-8 sm:mt-10 flex flex-col items-center"
 					>
 						<motion.div
 							className="mt-4"
@@ -98,7 +98,7 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 							animate={{ opacity: 1 }}
 							transition={{ duration: 0.5, delay: 1 }}
 						>
-							<span className="text-sm text-blush italic px-4 py-2 border border-blush/20 rounded-full">
+							<span className="text-xs sm:text-sm text-blush italic px-3 py-1.5 sm:px-4 sm:py-2 border border-blush/20 rounded-full bg-neutral-800/30 shadow-md">
 								✨ A living tribute ✨
 							</span>
 						</motion.div>
