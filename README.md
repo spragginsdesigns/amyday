@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💐 AmyDay – A Mother's Day Tribute
 
-## Getting Started
+A special interactive web experience built just for Amy — to celebrate her beauty, strength, and kindness on Mother’s Day.
 
-First, run the development server:
+This project is a personal expression of appreciation, created using modern web tools and heartfelt creativity.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🌟 Live Preview
+
+> _Coming soon – deployed on Vercel_
+
+---
+
+## 🧱 Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, Framer Motion
+- **Components:** Shadcn UI (optional), Canvas API
+- **Deployment:** Vercel
+
+---
+
+## 📁 Folder Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+amyday/
+├── public/               # Static assets (images, audio)
+├── src/
+│   ├── app/              # App Router entry
+│   │   └── page.tsx      # Main tribute page
+│   ├── components/       # Reusable UI elements
+│   │   ├── TypewriterLetter.tsx
+│   │   ├── ScratchCard.tsx
+│   │   ├── ComplimentGenerator.tsx
+│   │   ├── RevealMessage.tsx
+│   │   ├── Confetti.tsx
+│   │   └── VoicePlayer.tsx
+│   ├── lib/
+│   │   ├── compliments.ts
+│   │   └── messages.ts
+│   └── styles/           # Tailwind CSS config
+├── tailwind.config.ts
+├── tsconfig.json
+└── README.md             # This file
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+````
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💖 Features
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ V1 Core Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Hero Section:**
+  Graceful landing with custom greeting:
+  _"To my sweet, lovely Amy..."_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Typewriter Letter Animation:**
+  Slowly reveals a heartfelt message, line-by-line
 
-## Deploy on Vercel
+- **Press & Hold Reveal:**
+  Long-press interaction to uncover a hidden, deeper message
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🎁 V2 Optional Features
+
+- **Scratch Card Surprise:**
+  Canvas-based interaction that reveals a message or future date offer
+
+- **Compliment Generator:**
+  "Reasons I Adore You" button that cycles through sweet affirmations
+
+- **Voice Player:**
+  Optional narrated version of the letter with soft background music
+
+---
+
+## 🌈 Design Aesthetic
+
+- Soft, elegant, and romantic
+- Subtle gradients, glowing text, heart/confetti animations
+- Responsive layout (mobile-first)
+
+---
+
+## 🚀 Getting Started
+
+From your main code repo folder:
+
+```bash
+pnpm create next-app amyday -- --ts --app --tailwind --eslint --src-dir
+cd amyday
+pnpm dev
+````
+
+Now go to `http://localhost:3000`
+
+---
+
+## 🧠 Notes
+
+This site is for Amy only. It will remain private unless explicitly shared.
+
+Made with love by Austin 💛
