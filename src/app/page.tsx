@@ -6,8 +6,8 @@ import HeroSection from "@/components/HeroSection";
 import TypewriterLetter from "@/components/TypewriterLetter";
 import HoldToRevealMessage from "@/components/HoldToRevealMessage";
 import ComplimentGenerator from "@/components/ComplimentGenerator";
-import VoicePlayer from "@/components/VoicePlayer";
-import DarkHumorGenerator from "@/components/DarkHumorGenerator"; // Added import
+import DarkHumorGenerator from "@/components/DarkHumorGenerator";
+import AIChat from "@/components/AIChat";
 
 import { letterText, hiddenMessage } from "@/lib/messages";
 import { compliments } from "@/lib/compliments";
@@ -21,12 +21,6 @@ export default function Home() {
 
 				{/* Letter Section */}
 				<TypewriterLetter text={letterText} />
-
-				{/* Audio Player */}
-				<VoicePlayer
-					audioSrc="/audio/letter.mp3"
-					musicSrc="/audio/background.mp3"
-				/>
 
 				{/* Hidden Message */}
 				<div className="my-12">
@@ -47,6 +41,18 @@ export default function Home() {
 				<div className="my-12">
 					<hr className="border-neutral-700/50 my-12 sm:my-16" />
 					<DarkHumorGenerator />
+				</div>
+
+				{/* AI Chat */}
+				<div className="my-12">
+					<hr className="border-neutral-700/50 my-12 sm:my-16" />
+					<h2 className="text-3xl font-serif text-center text-blush mb-8 tracking-wider">
+						Talk to Dark Amy AI
+					</h2>
+					<p className="text-center text-neutral-400 mb-8">
+						Have a conversation with an AI that shares your dark sense of humor
+					</p>
+					<AIChat />
 				</div>
 
 				{/* Footer */}

@@ -14,7 +14,7 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 
 ## ✨ Core Features
 
-### ✅ Phase 1: Interactive Tribute
+### ✅ Current Features
 - **Hero Section**
   Soft animated welcome message:
   _"To my sweet, lovely Amy..."_
@@ -28,12 +28,12 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 - **Compliment Generator**
   Press a button to receive one of many affirmations, reasons she's cherished.
 
-- **Optional Voiceover**
-  Hear the letter read aloud with soft background music (if enabled).
+- **Dark Humor Generator**
+  Tap for sarcastic affirmations and meme-worthy quips tailored to Amy's signature humor style. Because healing sometimes sounds like, "I'm losing it, but make it funny."
 
 ---
 
-### 🌱 Phase 2: Memory Capsule
+### 🌱 Future Enhancements
 - **Rotating Blessings & Scripture**
   Gentle reminders pulled from a curated list of verses and thoughts.
 
@@ -43,13 +43,10 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 - **Mini Memory Moments**
   Short vignettes from shared conversations or silly memories — no photos needed.
 
-- **Dark Humor Generator**
-  Tap for sarcastic affirmations and meme-worthy quips tailored to Amy’s signature humor style. Because healing sometimes sounds like, “I’m losing it, but make it funny.”
-
 - **Mode Toggle**
   Switch between themes like "Mother's Day", "Laugh Corner", "Faith & Peace".
 
-- **Private Garden Page (Optional)**
+- **Private Garden Page**
   Where future prayers, journal entries, or audio reflections can live.
 
 ---
@@ -69,7 +66,7 @@ To create something **lasting**, **interactive**, and **emotionally meaningful**
 ```bash
 amyday/
 ├── public/               # Static assets (images, audio)
-│   └── audio/            # Audio files for voiceover and music
+│   └── audio/            # Audio files for background music (if any)
 ├── src/
 │   ├── app/              # App entry point (App Router)
 │   │   ├── globals.css   # Global styles
@@ -79,9 +76,10 @@ amyday/
 │   │   ├── TypewriterLetter.tsx
 │   │   ├── HoldToRevealMessage.tsx
 │   │   ├── ComplimentGenerator.tsx
-│   │   └── VoicePlayer.tsx
+│   │   └── DarkHumorGenerator.tsx
 │   └── lib/              # Content and logic
 │       ├── compliments.ts
+│       ├── jokes.ts
 │       └── messages.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
@@ -111,16 +109,12 @@ cd amyday
 pnpm install
 ```
 
-3. Create audio files:
-   - Add voice recording to `/public/audio/letter.mp3`
-   - Add background music to `/public/audio/background.mp3`
-
-4. Run the development server:
+3. Run the development server:
 ```bash
 pnpm dev
 ```
 
-5. View the site at [http://localhost:3000](http://localhost:3000)
+4. View the site at [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -145,9 +139,10 @@ This site is **not public**. It was built just for Amy, from someone who admires
 ## 🧠 Future Ideas (Backlogged)
 
 * Unlockable messages on specific dates or emotional keywords
-* Anonymous journal reflection tool for her
-* Scripture player with voice + peaceful background
+* Anonymous journal reflection tool
+* Scripture player with peaceful background
 * Optional dark/light theme toggle (based on mood)
+* Audio messages or voice notes for personalized encouragement
 
 ---
 

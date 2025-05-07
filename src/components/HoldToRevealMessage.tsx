@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HoldToRevealMessageProps {
@@ -12,31 +12,56 @@ const HoldToRevealMessage: React.FC<HoldToRevealMessageProps> = ({
 }) => {
 	const [isRevealed, setIsRevealed] = useState(false);
 	const [holdProgress, setHoldProgress] = useState(0);
-	const [holdStartTime, setHoldStartTime] = useState<number | null>(null);
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	const holdStartTimeRef = useRef<number | null>(null);
 	const holdDuration = 1000; // 1 second hold to reveal
 
-	const startHold = () => {
-		setHoldStartTime(Date.now());
-		setIsRevealed(false);
+	// Clean up the interval when component unmounts
+	useEffect(() => {
+		return () => {
+			if (intervalRef.current) {
+				clearInterval(intervalRef.current);
+			}
+		};
+	}, []);
 
-		const interval = setInterval(() => {
-			if (holdStartTime) {
-				const elapsed = Date.now() - holdStartTime;
+	const startHold = () => {
+		// Clear any existing interval
+		if (intervalRef.current) {
+			clearInterval(intervalRef.current);
+		}
+
+		holdStartTimeRef.current = Date.now();
+		setIsRevealed(false);
+		setHoldProgress(0);
+
+		intervalRef.current = setInterval(() => {
+			if (holdStartTimeRef.current) {
+				const elapsed = Date.now() - holdStartTimeRef.current;
 				const progress = Math.min(elapsed / holdDuration, 1);
 				setHoldProgress(progress);
 
 				if (progress >= 1) {
 					setIsRevealed(true);
-					clearInterval(interval);
+					if (intervalRef.current) {
+						clearInterval(intervalRef.current);
+						intervalRef.current = null;
+					}
 				}
 			}
 		}, 10);
-
-		return () => clearInterval(interval);
 	};
 
 	const endHold = () => {
-		setHoldStartTime(null);
+		// Clear the interval
+		if (intervalRef.current) {
+			clearInterval(intervalRef.current);
+			intervalRef.current = null;
+		}
+
+		holdStartTimeRef.current = null;
+
+		// Only reset if we haven't reached full progress
 		if (holdProgress < 1) {
 			setHoldProgress(0);
 			setIsRevealed(false);

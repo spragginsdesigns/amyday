@@ -1,20 +1,45 @@
 export const darkHumorLines = [
 	"I'm fine. Just emotionally bankrupt, spiritually exhausted, and out of snacks.",
-	"Today’s parenting win: nobody cried. Except me. In the shower.",
+	"Today's parenting win: nobody cried. Except me. In the shower.",
 	"Therapist: And what do we say when we feel overwhelmed? Me: 'LOL.'",
 	"Currently accepting hugs or large amounts of money. Either works.",
-	"I told my kids to ‘act like they have a mom who has her life together.’ They’re now in therapy.",
+	"I told my kids to 'act like they have a mom who has her life together.' They're now in therapy.",
 	"God gives his toughest battles to his sleep-deprived, under-caffeinated warriors.",
 	"My toxic trait? Thinking I can fix everything with sarcasm and memes.",
 	"Living proof that caffeine and stubbornness can hold a person together.",
+	"I've reached the age where my body is like 'LOL, good luck with that.'",
+	"I'm not dramatic, I'm a theatrical life interpreter.",
+	"My prayer life is basically just 'Seriously, God?!' 500 times a day.",
+	"I don't need therapy, I just need to repeatedly explain my problems to my cat.",
+	"Adulting level: folding the laundry the same day you wash it.",
+	"Turns out my threshold for stress is just slightly below my current life situation.",
+	"Sometimes I impress myself. Other times, I put my phone in the refrigerator.",
 ];
 
 export const darkHumorLinesMild = [
 	"I'm not saying I'm tired, but my tired is tired.",
 	"Yes, I'm ignoring texts. It's called self-care.™",
+	"You know you've reached mom status when going to the grocery store alone feels like a spa day.",
+	"I made a to-do list. Does that count as doing something productive?",
+	"My superpower is making plans and then being too exhausted to follow through.",
+	"I don't always have a sarcastic answer... OK, that's a lie.",
+	"All I want is a nap long enough to forget who I am.",
+	"Why is it called 'beauty sleep' when I wake up looking like I fought a raccoon?",
+	"My favorite exercise is a cross between a lunge and a crunch... I call it 'lunch.'",
+	"Today's accomplishment: I brushed my hair AND my teeth.",
 ];
 
 export const darkHumorLinesSpicy = [
 	"Jesus take the wheel, but also Venmo me gas money.",
-	"If I disappear, tell people I went on a wellness retreat. (It’s called Target.)",
+	"If I disappear, tell people I went on a wellness retreat. (It's called Target.)",
+	"My parenting style is best described as 'surviving the chaos I created.'",
+	"I have mixed drinks about feelings.",
+	"The bags under my eyes are designer. They're Gucci. Because I'm extra.",
+	"I've officially reached the 'pray for me or send wine' stage of motherhood.",
+	"My kids think I'm losing my mind. Joke's on them—I already lost it years ago.",
+	"I put the 'pro' in 'procrastinate' and the 'mess' in 'domestic.'",
+	"When life gives you lemons, ask for tequila and salt.",
+	"If you see me talking to myself, I'm having a parent-teacher conference.",
+	"I'm on that new diet where you eat whatever you want and then feel bad about it.",
+	"I'm not a regular mom, I'm a 'has anyone seen my phone? I just had it' mom.",
 ];
