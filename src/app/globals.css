@@ -1,11 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+	/* Colors */
+	--color-dark-bg: #231f20;
+	--color-card-bg: rgba(55, 55, 70, 0.6);
+	--color-ivory: #fffff0;
+	--color-lilac: #c8a2c8;
+	--color-blush: #e6a8d7;
+	--color-muted-rose: #d8bfd8;
+	--color-accent-glow: rgba(200, 162, 200, 0.3);
+
+	/* Typography */
+	--font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+/* Base styles */
+:root {
+	--foreground-rgb: 255, 255, 240;
+	--background-start-rgb: 35, 31, 32;
+	--background-end-rgb: 15, 14, 15;
+}
+
+html {
+	scroll-behavior: smooth;
+}
 
 body {
 	@apply bg-dark-bg text-ivory font-sans;
+	background: linear-gradient(
+		to bottom,
+		rgb(var(--background-start-rgb)),
+		rgb(var(--background-end-rgb))
+	);
+	min-height: 100vh;
 }
 
+/* Custom component styles */
 .glassmorphism {
 	@apply bg-card-bg backdrop-blur-xs border border-gray-700 rounded-lg shadow-lg;
 }
