@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const HeroSection: React.FC = () => {
 	return (
@@ -23,7 +24,10 @@ const HeroSection: React.FC = () => {
 						ease: "easeOut",
 						delay: 0.3,
 					}}
-					style={{ fontFamily: "var(--font-dancing-script)", textShadow: "0 0 15px rgba(212, 137, 168, 0.3)" }}
+					style={{
+						fontFamily: "var(--font-dancing-script)",
+						textShadow: "0 0 15px rgba(212, 137, 168, 0.3)",
+					}}
 				>
 					My Lovely Sweet Amy
 				</motion.h1>
@@ -41,6 +45,27 @@ const HeroSection: React.FC = () => {
 					<span className="inline-block px-4 py-1 rounded-full bg-card-bg/30 backdrop-blur-sm text-muted-rose text-sm">
 						✨ A living tribute ✨
 					</span>
+				</motion.div>
+
+				{/* Amy's Cartoonized Image */}
+				<motion.div
+					className="mt-8 flex justify-center"
+					initial={{ opacity: 0, y: 20, scale: 0.95 }}
+					animate={{ opacity: 1, y: 0, scale: 1 }}
+					transition={{
+						duration: 1.2,
+						ease: "easeOut",
+						delay: 2.0,
+					}}
+				>
+					<Image
+						src="/Amy-Cartoonized.png"
+						alt="Amy - A loving tribute"
+						width={200}
+						height={200}
+						className="rounded-full shadow-xl border-4 border-blush/30 object-cover w-[150px] h-[150px] sm:w-[200px] sm:h-[200px]"
+						priority
+					/>
 				</motion.div>
 			</motion.div>
 		</section>
