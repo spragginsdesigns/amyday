@@ -373,83 +373,81 @@ const HoldToRevealMessage = ({
 						{!isRevealed && (
 							<GiftBox isOpening={isOpening} progress={holdProgress} />
 						)}
-
-						{/* Message revealed when gift is opened - only show when revealed */}
-						<AnimatePresence mode="wait">
-							{isRevealed && (
-								<motion.div
-									className="fixed inset-0 z-20 flex items-center justify-center p-4 sm:p-6"
-									initial={{ opacity: 0, scale: 0.8 }}
-									animate={{ opacity: 1, scale: 1 }}
-									exit={{ opacity: 0, y: 20, scale: 0.8 }}
-									transition={{ duration: 0.5, type: "spring" }}
-									onClick={toggleGift}
-								>
-									<motion.div
-										className="p-4 sm:p-6 md:p-8 glassmorphism border border-blush/40 rounded-xl cursor-pointer mx-auto shadow-xl max-h-[90vh] overflow-y-auto"
-										initial={{ y: 20 }}
-										animate={{ y: 0 }}
-										transition={{ duration: 0.5, delay: 0.2 }}
-										style={{
-											background: "rgba(30, 30, 46, 0.95)",
-											backdropFilter: "blur(12px)",
-											width: "90%",
-											maxWidth: "600px",
-										}}
-									>
-										{/* Mobile layout (single column) */}
-										<motion.div
-											className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left pb-2"
-											initial={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											transition={{ delay: 0.3, duration: 0.5 }}
-											style={{
-												background:
-													"linear-gradient(to right, #f9a8d4, #d8b4fe)",
-												backgroundClip: "text",
-												WebkitBackgroundClip: "text",
-												WebkitTextFillColor: "transparent",
-												textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
-												fontWeight: 500,
-											}}
-										>
-											{formatMessageWithBreaks(hiddenMessage).mobile}
-										</motion.div>
-
-										{/* Desktop layout (multi-column) */}
-										<motion.div
-											className="hidden md:flex flex-row gap-8 text-lg lg:text-xl leading-loose tracking-wide"
-											initial={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											transition={{ delay: 0.3, duration: 0.5 }}
-											style={{
-												background:
-													"linear-gradient(to right, #f9a8d4, #d8b4fe)",
-												backgroundClip: "text",
-												WebkitBackgroundClip: "text",
-												WebkitTextFillColor: "transparent",
-												textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
-												fontWeight: 500,
-											}}
-										>
-											{formatMessageWithBreaks(hiddenMessage).desktop}
-										</motion.div>
-
-										{/* Hint to show it's clickable */}
-										<motion.p
-											className="text-xs sm:text-sm mt-6 text-blush/90 italic text-center font-medium"
-											initial={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											transition={{ delay: 0.8, duration: 0.5 }}
-										>
-											Tap to close
-										</motion.p>
-									</motion.div>
-								</motion.div>
-							)}
-						</AnimatePresence>
 					</motion.div>
 				</div>
+
+				{/* Revealed message - Use absolute positioning instead of fixed for better mobile experience */}
+				<AnimatePresence mode="wait">
+					{isRevealed && (
+						<motion.div
+							className="absolute top-0 left-0 right-0 z-20 flex items-center justify-center p-4 sm:p-6 min-h-[400px]"
+							initial={{ opacity: 0, scale: 0.8 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, y: 20, scale: 0.8 }}
+							transition={{ duration: 0.5, type: "spring" }}
+							onClick={toggleGift}
+						>
+							<motion.div
+								className="p-4 sm:p-6 md:p-8 glassmorphism border border-blush/40 rounded-xl cursor-pointer mx-auto shadow-xl max-h-[80vh] overflow-y-auto"
+								initial={{ y: 20 }}
+								animate={{ y: 0 }}
+								transition={{ duration: 0.5, delay: 0.2 }}
+								style={{
+									background: "rgba(30, 30, 46, 0.95)",
+									backdropFilter: "blur(12px)",
+									width: "100%",
+									maxWidth: "600px",
+								}}
+							>
+								{/* Mobile layout (single column) */}
+								<motion.div
+									className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left pb-2"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 0.3, duration: 0.5 }}
+									style={{
+										background: "linear-gradient(to right, #f9a8d4, #d8b4fe)",
+										backgroundClip: "text",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
+										fontWeight: 500,
+									}}
+								>
+									{formatMessageWithBreaks(hiddenMessage).mobile}
+								</motion.div>
+
+								{/* Desktop layout (multi-column) */}
+								<motion.div
+									className="hidden md:flex flex-row gap-8 text-lg lg:text-xl leading-loose tracking-wide"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 0.3, duration: 0.5 }}
+									style={{
+										background: "linear-gradient(to right, #f9a8d4, #d8b4fe)",
+										backgroundClip: "text",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
+										fontWeight: 500,
+									}}
+								>
+									{formatMessageWithBreaks(hiddenMessage).desktop}
+								</motion.div>
+
+								{/* Hint to show it's clickable */}
+								<motion.p
+									className="text-xs sm:text-sm mt-6 text-blush/90 italic text-center font-medium"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 0.8, duration: 0.5 }}
+								>
+									Tap to close
+								</motion.p>
+							</motion.div>
+						</motion.div>
+					)}
+				</AnimatePresence>
 
 				{/* Sparkles effect - moved here to be above everything else */}
 				<AnimatePresence>
@@ -498,7 +496,7 @@ const HoldToRevealMessage = ({
 					{isRevealed && (
 						<motion.button
 							onClick={toggleGift}
-							className="mt-6 px-4 py-2 bg-blush/30 hover:bg-blush/50 rounded-full text-sm border border-blush/40 transition-all duration-300 text-ivory"
+							className="mt-8 px-4 py-2 bg-blush/30 hover:bg-blush/50 rounded-full text-sm border border-blush/40 transition-all duration-300 text-ivory"
 							initial={{ opacity: 0, y: 10 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: 10 }}
