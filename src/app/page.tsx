@@ -9,109 +9,173 @@ import HoldToRevealMessage from "@/components/HoldToRevealMessage";
 import ComplimentGenerator from "@/components/ComplimentGenerator";
 import DarkHumorGenerator from "@/components/DarkHumorGenerator";
 import AIChat from "@/components/AIChat";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 import { letterText, hiddenMessage } from "@/lib/messages";
 import { compliments } from "@/lib/compliments";
 
+const sectionVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 0.8,
+			ease: [0.22, 1, 0.36, 1],
+		},
+	},
+};
+
 export default function Home() {
 	return (
-		<main className="min-h-screen pb-8 sm:pb-24 bg-gradient-to-br from-dark-bg via-black to-neutral-900 text-neutral-200">
-			<div className="container px-2 sm:px-6 md:px-8 mx-auto max-w-4xl">
-				{/* Welcome Section */}
-				<HeroSection />
-
-				{/* Hidden Message as Present */}
+		<main className="bg-gradient-to-br from-dark-bg via-black to-neutral-900 text-neutral-200">
+			{/* 1. Hero Section */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
 				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-					className="my-10 sm:my-12"
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
 				>
-					<hr className="border-neutral-700/50 my-8 sm:my-16" />
+					<HeroSection />
+				</motion.div>
+				<ScrollIndicator />
+			</section>
+
+			{/* 2. Special Gift - Hidden Message */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
+				>
+					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
+						A Special Gift For You
+					</h2>
 					<HoldToRevealMessage hiddenMessage={hiddenMessage} />
 				</motion.div>
+				<ScrollIndicator />
+			</section>
 
-				{/* AI Chat - Custom built by Austin */}
+			{/* 3. Letter Section */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
 				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-					className="my-10 sm:my-20 relative"
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
 				>
-					<hr className="border-neutral-700/50 my-8 sm:my-16" />
-					<div className="absolute -top-3 right-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs px-3 py-1 rounded-full text-white font-medium animate-pulse shadow-glow">
-						New!
-					</div>
-					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-3 sm:mb-4 tracking-wider">
-						Meet "Dark Amy"
+					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
+						A Letter For You
 					</h2>
-					<p className="text-center text-xs sm:text-base text-neutral-400 mb-6 sm:mb-8 max-w-lg mx-auto">
-						Austin built me with a touch of your darkness.
-						<br />
-						<span className="block mt-2 italic">
-							Talk to me anytime... if you&apos;re brave enough.
-						</span>
-					</p>
-					<div className="glassmorphism rounded-lg p-1 border border-blush/30 shadow-xl">
-						<AIChat />
-					</div>
-					<p className="text-xs text-center text-neutral-500 mt-3 sm:mt-4 italic">
-						Your conversations are private and not stored anywhere
-					</p>
-				</motion.div>
-
-				{/* Letter Section */}
-				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-					className="my-10 sm:my-12"
-				>
 					<TypewriterLetter text={letterText} />
 				</motion.div>
+				<ScrollIndicator />
+			</section>
 
-				{/* Compliment Generator */}
+			{/* 4. Reminder For You - Compliment Generator */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
 				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
-					className="my-10 sm:my-12"
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
 				>
-					<hr className="border-neutral-700/50 my-8 sm:my-16" />
 					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
 						A Reminder For You
 					</h2>
 					<ComplimentGenerator compliments={compliments} />
 				</motion.div>
+				<ScrollIndicator />
+			</section>
 
-				{/* Dark Humor Generator */}
+			{/* 5. Dark Humor */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
 				<motion.div
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
-					className="my-10 sm:my-12"
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
 				>
-					<hr className="border-neutral-700/50 my-8 sm:my-16" />
 					<DarkHumorGenerator />
 				</motion.div>
+				<ScrollIndicator />
+			</section>
 
-				{/* Footer */}
-				<motion.footer
-					initial={{ opacity: 0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.4 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-					className="mt-10 sm:mt-24 pt-8 border-t border-neutral-700/50 text-center text-xs sm:text-sm text-neutral-400"
+			{/* 6. Dark Amy AI */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
 				>
-					<p>Made with love for Amy, by Austin 💛</p>
-					<p className="mt-2">© {new Date().getFullYear()}</p>
-				</motion.footer>
-			</div>
+					<div className="relative">
+						<div className="absolute -top-3 right-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs px-3 py-1 rounded-full text-white font-medium animate-pulse shadow-glow">
+							New!
+						</div>
+						<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-3 sm:mb-4 tracking-wider">
+							Meet "Dark Amy"
+						</h2>
+						<p className="text-center text-xs sm:text-base text-neutral-400 mb-6 sm:mb-8 max-w-lg mx-auto">
+							Austin built me with a touch of your darkness.
+							<br />
+							<span className="block mt-2 italic">
+								Talk to me anytime... if you&apos;re brave enough.
+							</span>
+						</p>
+						<div className="glassmorphism rounded-lg p-1 border border-blush/30 shadow-xl">
+							<AIChat />
+						</div>
+						<p className="text-xs text-center text-neutral-500 mt-3 sm:mt-4 italic">
+							Your conversations are private and not stored anywhere
+						</p>
+					</div>
+				</motion.div>
+				<ScrollIndicator />
+			</section>
+
+			{/* 7. Footer */}
+			<section className="fullscreen-section">
+				<div className="section-bg-shimmer" />
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					variants={sectionVariants}
+					viewport={{ once: false, amount: 0.8 }}
+					className="container max-w-4xl"
+				>
+					<footer className="text-center text-neutral-400">
+						<div className="sm:max-w-lg mx-auto px-4 py-8 rounded-lg glassmorphism">
+							<h2 className="text-xl sm:text-3xl font-serif text-blush mb-4 tracking-wider">
+								From Austin, With Love
+							</h2>
+							<p className="mb-6 text-sm sm:text-base">
+								Every pixel of this site was crafted with you in mind. You
+								deserve all the love and light in the world, Amy. I hope this
+								digital gift brings you a smile today and always.
+							</p>
+							<div className="pt-4 border-t border-neutral-700/50">
+								<p>Made with love for Amy, by Austin 💛</p>
+								<p className="mt-2 text-sm">© {new Date().getFullYear()}</p>
+							</div>
+						</div>
+					</footer>
+				</motion.div>
+				<ScrollIndicator isLastSection={true} />
+			</section>
 		</main>
 	);
 }
