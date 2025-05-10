@@ -69,15 +69,9 @@ export default function Home() {
 			{/* 3. Letter Section */}
 			<section className="fullscreen-section">
 				<div className="section-bg-shimmer" />
-				<motion.div
-					initial="hidden"
-					whileInView="visible"
-					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
-					className="container max-w-4xl"
-				>
+				<div className="container max-w-4xl w-full">
 					<TypewriterLetter text={letterText} />
-				</motion.div>
+				</div>
 				<ScrollIndicator />
 			</section>
 
