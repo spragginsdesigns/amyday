@@ -259,11 +259,13 @@ const HoldToRevealMessage = ({
 			setIsOpening(false);
 			setHoldProgress(0);
 			setShowSparkles(false);
+		} else {
+			startHold();
 		}
 	};
 
 	// Handle events conditionally but always provide a handler function
-	const handleMouseDown = (e: React.MouseEvent) => {
+	const handleMouseDown = () => {
 		if (isRevealed) {
 			toggleGift();
 		} else {
@@ -271,19 +273,19 @@ const HoldToRevealMessage = ({
 		}
 	};
 
-	const handleMouseUp = (e: React.MouseEvent) => {
+	const handleMouseUp = () => {
 		if (!isRevealed) {
 			endHold();
 		}
 	};
 
-	const handleMouseLeave = (e: React.MouseEvent) => {
+	const handleMouseLeave = () => {
 		if (!isRevealed) {
 			endHold();
 		}
 	};
 
-	const handleTouchStart = (e: React.TouchEvent) => {
+	const handleTouchStart = () => {
 		if (isRevealed) {
 			toggleGift();
 		} else {
@@ -291,7 +293,7 @@ const HoldToRevealMessage = ({
 		}
 	};
 
-	const handleTouchEnd = (e: React.TouchEvent) => {
+	const handleTouchEnd = () => {
 		if (!isRevealed) {
 			endHold();
 		}

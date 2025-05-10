@@ -79,7 +79,7 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 						God Sees It All
 					</h1>
 					<h2 className="text-lg sm:text-xl text-blush/80 font-serif italic mb-4">
-						A Mother's Day Tribute to Amy
+						A Mother&apos;s Day Tribute to Amy
 					</h2>
 					<div className="w-16 sm:w-24 h-0.5 bg-blush/40 mx-auto rounded-full"></div>
 				</div>

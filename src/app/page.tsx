@@ -126,7 +126,7 @@ export default function Home() {
 				>
 					<div className="relative">
 						<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-3 sm:mb-4 tracking-wider">
-							Meet "Dark Amy"
+							Meet &quot;Dark Amy&quot;
 						</h2>
 						<p className="text-center text-xs sm:text-base text-neutral-400 mb-6 sm:mb-8 max-w-lg mx-auto">
 							Austin built me with a touch of your darkness.

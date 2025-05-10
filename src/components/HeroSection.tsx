@@ -7,7 +7,7 @@ import Image from "next/image";
 // Utility: Confetti animation for Mother's Day (mobile-friendly)
 function launchConfetti() {
 	if (typeof window === "undefined") return;
-	// @ts-ignore: No type declarations for canvas-confetti
+	// @ts-expect-error: No type declarations for canvas-confetti
 	import("canvas-confetti")
 		.then((confetti) => {
 			confetti.default({
