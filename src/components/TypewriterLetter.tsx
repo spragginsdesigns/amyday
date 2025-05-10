@@ -52,9 +52,11 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 			result.push(
 				<div key={i} className="mb-6 sm:mb-8 text-center stanza leading-normal">
 					{stanzaText.split("\n").map((line, lineIndex) => (
-						<div key={lineIndex} className="py-0.5">
-							{line}
-						</div>
+						<div
+							key={lineIndex}
+							className="py-0.5"
+							dangerouslySetInnerHTML={{ __html: line }}
+						/>
 					))}
 				</div>
 			);
