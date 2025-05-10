@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TypewriterLetterProps {
 	text: string;
@@ -11,22 +11,19 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 	const [displayedText, setDisplayedText] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isTypingComplete, setIsTypingComplete] = useState(false);
-	const [hasStartedTyping, setHasStartedTyping] = useState(false);
+	const [hasStartedTyping, setHasStartedTyping] = useState(true); // Default to true to start typing immediately
 	const containerRef = useRef(null);
-	const isInView = useInView(containerRef, { once: false, amount: 0.2 });
 
 	// Split the text into stanzas for poetic formatting
 	const stanzas = text.split("\n\n");
 
 	useEffect(() => {
-		// Only start typing if the component is in view
-		if (isInView && !hasStartedTyping) {
-			setHasStartedTyping(true);
-		}
-	}, [isInView, hasStartedTyping]);
+		// Start typing immediately without waiting for view
+		setHasStartedTyping(true);
+	}, []);
 
 	useEffect(() => {
-		// If we're in view and haven't finished typing
+		// If we have started typing and haven't finished
 		if (hasStartedTyping && currentIndex < text.length) {
 			const timeout = setTimeout(() => {
 				// Add the next character to the displayed text
@@ -54,19 +51,13 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 			);
 
 			result.push(
-				<motion.div
-					key={i}
-					className="mb-6 sm:mb-8 text-center stanza leading-normal"
-					initial={{ opacity: 0.6 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.5, delay: i * 0.2 }}
-				>
+				<div key={i} className="mb-6 sm:mb-8 text-center stanza leading-normal">
 					{stanzaText.split("\n").map((line, lineIndex) => (
 						<div key={lineIndex} className="py-0.5">
 							{line}
 						</div>
 					))}
-				</motion.div>
+				</div>
 			);
 
 			// Move position forward, accounting for stanza text and the '\n\n' separator
@@ -77,10 +68,8 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 	};
 
 	return (
-		<motion.div
+		<div
 			ref={containerRef}
-			initial={{ opacity: 0 }}
-			animate={{ opacity: isInView ? 1 : 0 }}
 			className="p-6 sm:p-8 my-8 glassmorphism rounded-lg max-w-3xl mx-auto border border-blush/20"
 		>
 			<div className="text-center mb-8 sm:mb-10">
@@ -98,38 +87,23 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 			</div>
 
 			{isTypingComplete && (
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.5, delay: 0.5 }}
-					className="mt-8 sm:mt-10 flex flex-col items-center"
-				>
-					<motion.div
-						className="mt-4"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.5, delay: 1 }}
-					>
+				<div className="mt-8 sm:mt-10 flex flex-col items-center">
+					<div className="mt-4">
 						<span className="text-xs sm:text-sm text-blush italic px-3 py-1.5 sm:px-4 sm:py-2 border border-blush/20 rounded-full bg-neutral-800/30 shadow-md">
 							✨ A living tribute ✨
 						</span>
-					</motion.div>
+					</div>
 
 					{/* Signature */}
-					<motion.div
-						initial={{ opacity: 0, y: 10 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.7, delay: 1.2 }} // Slightly reduced delay
-						className="mt-6 text-center"
-					>
+					<div className="mt-6 text-center">
 						{/* Refined font stack for better cursive rendering */}
 						<p className="font-['Brush_Script_MT','Segoe_Script','Snell_Roundhand',cursive] text-lg sm:text-xl text-blush/90">
 							By: Austin Spraggins
 						</p>
-					</motion.div>
-				</motion.div>
+					</div>
+				</div>
 			)}
-		</motion.div>
+		</div>
 	);
 };
 

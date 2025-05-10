@@ -25,16 +25,9 @@
 }
 
 html {
-	scroll-behavior: smooth;
-	scroll-snap-type: y proximity;
-	overflow-y: scroll;
+	/* Removed smooth scrolling and snap behavior for better mobile experience */
+	overflow-y: auto;
 	height: 100%;
-}
-
-@media (max-width: 768px) {
-	html {
-		scroll-snap-type: y mandatory;
-	}
 }
 
 body {
@@ -52,24 +45,22 @@ body {
 /* Fullscreen sections */
 .fullscreen-section {
 	min-height: 100vh;
-	height: 100vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	scroll-snap-align: center;
+	/* Removed scroll-snap-align for better mobile scrolling */
 	position: relative;
-	overflow: hidden;
+	overflow: visible; /* Changed from hidden to visible */
 	padding: 1rem;
-	transition: transform 0.5s ease;
 }
 
 @media (max-width: 768px) {
 	.fullscreen-section {
 		height: auto;
 		min-height: 100vh;
-		scroll-snap-align: start;
+		/* Removed scroll-snap-align */
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}

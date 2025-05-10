@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 import HeroSection from "@/components/HeroSection";
@@ -9,7 +9,6 @@ import HoldToRevealMessage from "@/components/HoldToRevealMessage";
 import ComplimentGenerator from "@/components/ComplimentGenerator";
 import DarkHumorGenerator from "@/components/DarkHumorGenerator";
 import AIChat from "@/components/AIChat";
-import ScrollIndicator from "@/components/ScrollIndicator";
 
 import { letterText, hiddenMessage } from "@/lib/messages";
 import { compliments } from "@/lib/compliments";
@@ -26,10 +25,7 @@ const sectionVariants = {
 };
 
 export default function Home() {
-	// Ensure page starts at the top on load
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+	// Removed auto-scrolling effect
 
 	return (
 		<main className="bg-gradient-to-br from-dark-bg via-black to-neutral-900 text-neutral-200">
@@ -40,12 +36,11 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<HeroSection />
 				</motion.div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 2. Special Gift - Hidden Message */}
@@ -55,7 +50,7 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
@@ -63,7 +58,6 @@ export default function Home() {
 					</h2>
 					<HoldToRevealMessage hiddenMessage={hiddenMessage} />
 				</motion.div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 3. Letter Section */}
@@ -72,7 +66,6 @@ export default function Home() {
 				<div className="container max-w-4xl w-full">
 					<TypewriterLetter text={letterText} />
 				</div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 4. Reminder For You - Compliment Generator */}
@@ -82,7 +75,7 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
@@ -90,7 +83,6 @@ export default function Home() {
 					</h2>
 					<ComplimentGenerator compliments={compliments} />
 				</motion.div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 5. Dark Humor */}
@@ -100,12 +92,11 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<DarkHumorGenerator />
 				</motion.div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 6. Dark Amy AI */}
@@ -115,7 +106,7 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<div className="relative">
@@ -137,7 +128,6 @@ export default function Home() {
 						</p>
 					</div>
 				</motion.div>
-				<ScrollIndicator />
 			</section>
 
 			{/* 7. Footer */}
@@ -147,7 +137,7 @@ export default function Home() {
 					initial="hidden"
 					whileInView="visible"
 					variants={sectionVariants}
-					viewport={{ once: false, amount: 0.8 }}
+					viewport={{ once: true, amount: 0.3 }}
 					className="container max-w-4xl"
 				>
 					<footer className="text-center text-neutral-400">
@@ -167,7 +157,6 @@ export default function Home() {
 						</div>
 					</footer>
 				</motion.div>
-				<ScrollIndicator isLastSection={true} />
 			</section>
 		</main>
 	);
