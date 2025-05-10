@@ -14,6 +14,10 @@ export const darkHumorLines = [
 	"Adulting level: folding the laundry the same day you wash it.",
 	"Turns out my threshold for stress is just slightly below my current life situation.",
 	"Sometimes I impress myself. Other times, I put my phone in the refrigerator.",
+	"I'm one inconvenience away from a full-blown existential crisis.",
+	"My life is held together by dry shampoo and passive-aggressive texts.",
+	"I smile so I don't scream.",
+	"Just a reminder: chaos is a sign of life. And my house is *very* alive.",
 ];
 
 export const darkHumorLinesMild = [
@@ -27,6 +31,11 @@ export const darkHumorLinesMild = [
 	"Why is it called 'beauty sleep' when I wake up looking like I fought a raccoon?",
 	"My favorite exercise is a cross between a lunge and a crunch... I call it 'lunch.'",
 	"Today's accomplishment: I brushed my hair AND my teeth.",
+	"I organized a drawer. I'm basically a life coach now.",
+	"Being an adult is just Googling how to do everything.",
+	"I laughed once today. It was sarcastic, but it counts.",
+	"I'm not lazy. I'm just very energy-efficient.",
+	"My house isn’t messy. It’s parent-core aesthetic.",
 ];
 
 export const darkHumorLinesSpicy = [
@@ -42,4 +51,8 @@ export const darkHumorLinesSpicy = [
 	"If you see me talking to myself, I'm having a parent-teacher conference.",
 	"I'm on that new diet where you eat whatever you want and then feel bad about it.",
 	"I'm not a regular mom, I'm a 'has anyone seen my phone? I just had it' mom.",
+	"I'm the plot twist God warned you about.",
+	"My therapist asked how I cope. I said 'Instagram Reels and rage cleaning.'",
+	"Motherhood: where 'me time' means hiding in the pantry with snacks.",
+	"I’m 87% caffeine, 10% sass, 3% hanging by a thread.",
 ];
