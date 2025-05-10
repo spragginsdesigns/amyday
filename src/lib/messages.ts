@@ -34,4 +34,4 @@ Not just for what you do, but who you are:
 A radiant soul, a mother, God's star.`;
 
 // The hidden encouraging message that appears when user holds the button
-export const hiddenMessage = `Amy, your strength in adversity doesn't just inspire me - it changes how I see the world. You may not realize it, but watching you navigate life's challenges with such grace has taught me that true beauty lies in resilience. You are constantly growing, healing, and becoming more - and that journey, with all its imperfections, makes you absolutely radiant. Never doubt your worth - you are cherished more than you know.`;
+export const hiddenMessage = `Amy, your strength in the face of hardship doesn’t just inspire me — it reshapes how I understand courage. You carry pain, faith, and humor all at once, and somehow still lead with love. Watching you walk through fire with grace has taught me that real beauty lives in resilience. You're not just surviving — you're becoming. And that journey, messy and honest as it is, makes you glow with something eternal. Please never forget: you are deeply valued, fiercely loved, and more radiant than you know.`;
