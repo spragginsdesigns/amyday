@@ -1,0 +1,89 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Styling Guide for NextJS Web Apps
+
+## Core Philosophy
+- Utility-first Tailwind + TypeScript = rapid, type-safe styling.
+- Own your UI: import Shadcn UI components as source, not packages.
+- Keep **tailwind.config.js** the single source of design tokens.
+
+## Tailwind Rules
+1. **Configuration**
+   - Extend `theme` only; define brand colors, spacing, typography, breakpoints.
+   - Keep `content` array exhaustive so JIT sees every class.
+2. **Performance**
+   - Rely on Tailwind JIT (v3 +). Safelist sparingly.
+3. **Dark Mode**
+   - `darkMode: "class"`; toggle `<html class="dark">` and persist with `localStorage`.
+4. **Utility Order**
+   Layout → Spacing/Position → Size → Typography → Visual → States.
+   Use `prettier-plugin-tailwindcss` to autosort.
+5. **@apply**
+   - Escape hatch only for ultra-reusable patterns (e.g., `.btn-primary`).
+   - Prefer React components for anything interactive.
+6. **Plugins**
+   - Start with official plugins (`typography`, `forms`, `aspect-ratio`).
+   - Write custom plugins only when existing utilities can’t meet the need.
+
+## TypeScript Integration
+- Enable `strict` mode. Use Tailwind IntelliSense.
+- Build class strings with **clsx**; run them through **tailwind-merge** (`twMerge`).
+- Create typed helpers for complex variants:
+
+    export type ButtonVariant = "primary" | "secondary" | "danger";
+    export type ButtonSize    = "sm" | "md" | "lg";
+    export function getButtonClasses(
+      v: ButtonVariant, s: ButtonSize, disabled = false,
+    ) {
+      return twMerge(
+        "inline-flex items-center font-semibold transition focus:outline-none",
+        {
+          primary:   "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500/50",
+          secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400/50",
+          danger:    "bg-red-600  text-white hover:bg-red-700  focus:ring-red-500/50",
+        }[v],
+        { sm: "px-2 py-1 text-xs", md: "px-4 py-2 text-sm", lg: "px-6 py-3" }[s],
+        disabled && "opacity-50 cursor-not-allowed",
+      );
+    }
+
+- Never interpolate class strings (`bg-${color}-500`). Map props → full classes or safelist.
+
+## Shadcn UI Usage
+1. **Install** with `npx shadcn-ui@latest add <component>` → `/components/ui`. Commit original before edits.
+2. **Customize** directly in the copied TSX. Theme via CSS variables in `globals.css`; mirror new tokens in `tailwind.config.js`.
+3. **Update** by diffing upstream changes and merging manually.
+4. **Accessibility** comes from Radix primitives—keep ARIA roles, focus, keyboard flows intact.
+
+## Project Structure (inside `src/`)
+    components/      global reusable UI
+    components/ui/   Shadcn-derived components
+    features/        domain modules
+    hooks/           React hooks
+    layouts/         page skeletons
+    lib/             utilities & helpers
+    styles/          Tailwind directives & globals.css
+    app/ or pages/   Next.js routes
+
+## Readability & Maintainability
+- Keep inline `className` strings ≤ 120 chars; split via template literals or vars if longer.
+- Group related classes; rely on Prettier plugin to enforce order.
+- Write tests for any custom Tailwind plugin utilities.
+
+## Performance & Accessibility Checklist
+- Lighthouse ≥ 90 for Performance, Accessibility, Best Practices.
+- Production CSS ≤ 50 kB gzip.
+- Verify color contrast (WCAG AA) in light and dark themes.
+- Ensure focus traps, ARIA attributes, and full keyboard navigation on every interactive component.
+
+## CI / Tooling
+- ESLint with `eslint-plugin-jsx-a11y` & `eslint-plugin-tailwindcss`.
+- Prettier + Tailwind plugin.
+- Husky pre-commit: `pnpm lint && pnpm typecheck && pnpm test`.
+
+---
+
+Follow these rules to keep every Next.js 15 app fast, beautiful, and maintainable.

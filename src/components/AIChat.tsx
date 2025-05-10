@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 type Message = {
 	role: "user" | "assistant";
@@ -20,17 +21,6 @@ export default function AIChat() {
 	const [isTyping, setIsTyping] = useState(false);
 	const messagesEndRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
-
-	useEffect(() => {
-		// messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); // Removed to prevent auto-scroll to input
-	}, [messages]);
-
-	// Focus input when component mounts
-	useEffect(() => {
-		setTimeout(() => {
-			inputRef.current?.focus();
-		}, 500);
-	}, []);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -58,6 +48,11 @@ export default function AIChat() {
 
 			const data = await response.json();
 
+			// After adding a message, manually scroll to it
+			setTimeout(() => {
+				messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+			}, 100);
+
 			// Simulate typing effect
 			setIsLoading(false);
 			setIsTyping(true);
@@ -69,6 +64,11 @@ export default function AIChat() {
 					{ role: "assistant" as const, content: data.message },
 				]);
 				setIsTyping(false);
+
+				// Only scroll to new messages during active conversation
+				setTimeout(() => {
+					messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+				}, 100);
 			}, Math.min(1000, data.message.length * 15)); // Dynamic delay based on message length
 		} catch (error) {
 			console.error("Error:", error);
@@ -95,11 +95,17 @@ export default function AIChat() {
 	};
 
 	return (
-		<div className="flex flex-col h-[70vh] sm:h-[550px] max-h-[600px] bg-neutral-800/50 backdrop-blur-sm rounded-lg shadow-2xl overflow-hidden border border-neutral-700 transition-all">
+		<motion.div
+			initial={{ opacity: 0, y: 40 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.1 }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+			className="flex flex-col h-[70vh] sm:h-[550px] max-h-[600px] bg-neutral-800/50 backdrop-blur-sm rounded-lg shadow-2xl overflow-hidden border border-neutral-700 transition-all"
+		>
 			<div className="p-3 sm:p-4 bg-neutral-800/80 backdrop-blur-sm border-b border-neutral-700 flex justify-between items-center">
 				<div>
 					<h3 className="text-lg sm:text-xl font-medium text-blush">
-						Dark Amy AI
+						Dark Amy
 					</h3>
 					<p className="text-xs sm:text-sm text-neutral-400">
 						Your Morbid AI Companion
@@ -190,6 +196,6 @@ export default function AIChat() {
 					</button>
 				</div>
 			</form>
-		</div>
+		</motion.div>
 	);
 }
