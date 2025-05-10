@@ -74,11 +74,14 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
 			>
-				<div className="text-center mb-6 sm:mb-8">
-					<h2 className="text-xl sm:text-2xl font-serif text-blush mb-2">
-						A Letter For You
+				<div className="text-center mb-8 sm:mb-10">
+					<h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-blush mb-3 tracking-wide">
+						God Sees It All
+					</h1>
+					<h2 className="text-lg sm:text-xl text-blush/80 font-serif italic mb-4">
+						A Mother's Day Tribute to Amy
 					</h2>
-					<div className="w-12 sm:w-16 h-1 bg-blush/40 mx-auto rounded-full"></div>
+					<div className="w-16 sm:w-24 h-0.5 bg-blush/40 mx-auto rounded-full"></div>
 				</div>
 
 				<div className="font-serif text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose text-ivory/90 poem-content">

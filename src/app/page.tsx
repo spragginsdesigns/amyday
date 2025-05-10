@@ -71,9 +71,6 @@ export default function Home() {
 					viewport={{ once: false, amount: 0.8 }}
 					className="container max-w-4xl"
 				>
-					<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-6 sm:mb-8 tracking-wider">
-						A Letter For You
-					</h2>
 					<TypewriterLetter text={letterText} />
 				</motion.div>
 				<ScrollIndicator />
@@ -123,9 +120,6 @@ export default function Home() {
 					className="container max-w-4xl"
 				>
 					<div className="relative">
-						<div className="absolute -top-3 right-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs px-3 py-1 rounded-full text-white font-medium animate-pulse shadow-glow">
-							New!
-						</div>
 						<h2 className="text-xl sm:text-3xl font-serif text-center text-blush mb-3 sm:mb-4 tracking-wider">
 							Meet "Dark Amy"
 						</h2>

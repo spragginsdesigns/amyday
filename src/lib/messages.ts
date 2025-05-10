@@ -1,11 +1,11 @@
 // src/lib/messages.ts
 
 // The personal letter to Amy using the poem from README.md
-export const letterText = `**For Amy, on Mother's Day**
+export const letterText = `
 
 In a world that pulls and tears apart,
 You hold your ground with a lion's heart.
-God sees the work no one applauds—
+God sees the work no one applauds
 The sleepless nights, the whispered prayers to God.
 
 Your love for Pierson, Presli, Pax shines bright,
@@ -26,7 +26,7 @@ And in God's eyes, that's the highest gift.
 You've shown me strength wrapped up in grace,
 A warrior's heart with a gentle face.
 And while the world may fail to see,
-God says, *"Well done. You walk with Me."*
+God says, <b>"Well done. You walk with Me."</b>
 
 So pause today—breathe deep, be still,
 You are a wonder, and always will.
