@@ -157,9 +157,12 @@ const HoldToRevealMessage = ({
 			.replace("eternal.", "eternal.\n\n")
 			.split("\n\n");
 
-		// For mobile: render as regular paragraphs
+		// For mobile: render as regular paragraphs with better spacing
 		const mobileParagraphs = paragraphs.map((paragraph, index) => (
-			<p key={`mobile-${index}`} className="mb-4 last:mb-0">
+			<p
+				key={`mobile-${index}`}
+				className={`mb-6 ${index === paragraphs.length - 1 ? "mb-0" : ""}`}
+			>
 				{paragraph.split("\n").map((line, lineIndex) => (
 					<React.Fragment key={`mobile-${index}-${lineIndex}`}>
 						{line}
@@ -375,7 +378,7 @@ const HoldToRevealMessage = ({
 						<AnimatePresence mode="wait">
 							{isRevealed && (
 								<motion.div
-									className="relative max-w-md sm:max-w-lg md:max-w-4xl lg:max-w-5xl mx-auto z-20"
+									className="fixed inset-0 z-20 flex items-center justify-center p-4 sm:p-6"
 									initial={{ opacity: 0, scale: 0.8 }}
 									animate={{ opacity: 1, scale: 1 }}
 									exit={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -383,20 +386,20 @@ const HoldToRevealMessage = ({
 									onClick={toggleGift}
 								>
 									<motion.div
-										className="p-6 sm:p-8 glassmorphism border border-blush/40 rounded-xl cursor-pointer mx-auto shadow-xl"
+										className="p-4 sm:p-6 md:p-8 glassmorphism border border-blush/40 rounded-xl cursor-pointer mx-auto shadow-xl max-h-[90vh] overflow-y-auto"
 										initial={{ y: 20 }}
 										animate={{ y: 0 }}
 										transition={{ duration: 0.5, delay: 0.2 }}
 										style={{
-											background: "rgba(30, 30, 46, 0.85)",
+											background: "rgba(30, 30, 46, 0.95)",
 											backdropFilter: "blur(12px)",
-											width: "95%",
-											maxWidth: "100%",
+											width: "90%",
+											maxWidth: "600px",
 										}}
 									>
 										{/* Mobile layout (single column) */}
 										<motion.div
-											className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left"
+											className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left pb-2"
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
 											transition={{ delay: 0.3, duration: 0.5 }}
@@ -434,7 +437,7 @@ const HoldToRevealMessage = ({
 
 										{/* Hint to show it's clickable */}
 										<motion.p
-											className="text-xs sm:text-sm mt-8 text-blush/90 italic text-center font-medium"
+											className="text-xs sm:text-sm mt-6 text-blush/90 italic text-center font-medium"
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
 											transition={{ delay: 0.8, duration: 0.5 }}
