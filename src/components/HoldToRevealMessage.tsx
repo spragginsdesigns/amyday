@@ -141,6 +141,52 @@ const HoldToRevealMessage = ({
 	const holdDuration = 1500; // Slightly longer duration (1.5s) for more satisfying experience
 	const [showSparkles, setShowSparkles] = useState(false);
 
+	// Format the message with paragraph breaks at natural points
+	const formatMessageWithBreaks = (
+		message: string
+	): {
+		mobile: React.ReactNode[];
+		desktop: React.ReactNode[];
+	} => {
+		// Split the message into paragraphs (these will become columns on desktop)
+		const paragraphs = message
+			.replace(". You", ".\n\nYou")
+			.replace("grace has", "grace\nhas")
+			.replace("resilience.", "resilience.\n\n")
+			.replace("becoming.", "becoming.\n\n")
+			.replace("eternal.", "eternal.\n\n")
+			.split("\n\n");
+
+		// For mobile: render as regular paragraphs
+		const mobileParagraphs = paragraphs.map((paragraph, index) => (
+			<p key={`mobile-${index}`} className="mb-4 last:mb-0">
+				{paragraph.split("\n").map((line, lineIndex) => (
+					<React.Fragment key={`mobile-${index}-${lineIndex}`}>
+						{line}
+						{lineIndex < paragraph.split("\n").length - 1 && <br />}
+					</React.Fragment>
+				))}
+			</p>
+		));
+
+		// For desktop: render as columns
+		const desktopColumns = paragraphs.map((paragraph, index) => (
+			<div key={`desktop-${index}`} className="flex-1 px-4 min-w-[200px]">
+				{paragraph.split("\n").map((line, lineIndex) => (
+					<React.Fragment key={`desktop-${index}-${lineIndex}`}>
+						{line}
+						{lineIndex < paragraph.split("\n").length - 1 && <br />}
+					</React.Fragment>
+				))}
+			</div>
+		));
+
+		return {
+			mobile: mobileParagraphs,
+			desktop: desktopColumns,
+		};
+	};
+
 	// Clean up interval on unmount
 	useEffect(() => {
 		return () => {
@@ -327,31 +373,66 @@ const HoldToRevealMessage = ({
 						<AnimatePresence mode="wait">
 							{isRevealed && (
 								<motion.div
-									className="relative max-w-md mx-auto z-20"
+									className="relative max-w-md sm:max-w-lg md:max-w-4xl lg:max-w-5xl mx-auto z-20"
 									initial={{ opacity: 0, scale: 0.8 }}
 									animate={{ opacity: 1, scale: 1 }}
 									exit={{ opacity: 0, y: 20, scale: 0.8 }}
 									transition={{ duration: 0.5, type: "spring" }}
-									onClick={toggleGift} // Allow clicking on the message to close it
+									onClick={toggleGift}
 								>
 									<motion.div
-										className="p-5 sm:p-6 glassmorphism border border-blush/30 rounded-xl cursor-pointer"
+										className="p-6 sm:p-8 glassmorphism border border-blush/40 rounded-xl cursor-pointer mx-auto shadow-xl"
 										initial={{ y: 20 }}
 										animate={{ y: 0 }}
 										transition={{ duration: 0.5, delay: 0.2 }}
+										style={{
+											background: "rgba(30, 30, 46, 0.85)",
+											backdropFilter: "blur(12px)",
+											width: "95%",
+											maxWidth: "100%",
+										}}
 									>
-										<motion.p
-											className="text-base sm:text-lg text-ivory"
+										{/* Mobile layout (single column) */}
+										<motion.div
+											className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left"
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
 											transition={{ delay: 0.3, duration: 0.5 }}
+											style={{
+												background:
+													"linear-gradient(to right, #f9a8d4, #d8b4fe)",
+												backgroundClip: "text",
+												WebkitBackgroundClip: "text",
+												WebkitTextFillColor: "transparent",
+												textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
+												fontWeight: 500,
+											}}
 										>
-											{hiddenMessage}
-										</motion.p>
+											{formatMessageWithBreaks(hiddenMessage).mobile}
+										</motion.div>
+
+										{/* Desktop layout (multi-column) */}
+										<motion.div
+											className="hidden md:flex flex-row gap-8 text-lg lg:text-xl leading-loose tracking-wide"
+											initial={{ opacity: 0 }}
+											animate={{ opacity: 1 }}
+											transition={{ delay: 0.3, duration: 0.5 }}
+											style={{
+												background:
+													"linear-gradient(to right, #f9a8d4, #d8b4fe)",
+												backgroundClip: "text",
+												WebkitBackgroundClip: "text",
+												WebkitTextFillColor: "transparent",
+												textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
+												fontWeight: 500,
+											}}
+										>
+											{formatMessageWithBreaks(hiddenMessage).desktop}
+										</motion.div>
 
 										{/* Hint to show it's clickable */}
 										<motion.p
-											className="text-xs mt-4 text-blush/70 italic"
+											className="text-xs sm:text-sm mt-8 text-blush/90 italic text-center font-medium"
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
 											transition={{ delay: 0.8, duration: 0.5 }}

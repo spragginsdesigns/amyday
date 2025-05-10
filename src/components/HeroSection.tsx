@@ -15,6 +15,7 @@ function launchConfetti() {
 				spread: 70,
 				origin: { y: 0.6 },
 				colors: ["#eab1d5", "#f9c2ff", "#f7e1ff", "#fbb6ce", "#fcd34d"],
+				disableForReducedMotion: true,
 			});
 		})
 		.catch(() => {});
@@ -22,7 +23,12 @@ function launchConfetti() {
 
 const HeroSection: React.FC = () => {
 	useEffect(() => {
-		launchConfetti();
+		// Small delay to ensure the hero section is properly rendered first
+		const timer = setTimeout(() => {
+			launchConfetti();
+		}, 100);
+
+		return () => clearTimeout(timer);
 	}, []);
 
 	return (

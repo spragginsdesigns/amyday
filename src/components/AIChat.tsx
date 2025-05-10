@@ -29,10 +29,10 @@ export default function AIChat() {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const chatContainerRef = useRef<HTMLDivElement>(null);
 
-	// Focus input on load
-	useEffect(() => {
+	// Focus input ONLY when user clicks inside the component
+	const handleContainerClick = () => {
 		inputRef.current?.focus();
-	}, []);
+	};
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -177,6 +177,7 @@ export default function AIChat() {
 
 			<div
 				ref={chatContainerRef}
+				onClick={handleContainerClick}
 				className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 bg-gradient-to-b from-neutral-800/30 to-neutral-900/30"
 			>
 				<AnimatePresence initial={false}>

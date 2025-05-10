@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import HeroSection from "@/components/HeroSection";
@@ -26,10 +26,15 @@ const sectionVariants = {
 };
 
 export default function Home() {
+	// Ensure page starts at the top on load
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<main className="bg-gradient-to-br from-dark-bg via-black to-neutral-900 text-neutral-200">
 			{/* 1. Hero Section */}
-			<section className="fullscreen-section">
+			<section id="hero" className="fullscreen-section">
 				<div className="section-bg-shimmer" />
 				<motion.div
 					initial="hidden"

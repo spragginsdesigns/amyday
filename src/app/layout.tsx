@@ -38,7 +38,6 @@ export const metadata: Metadata = {
 		"special",
 	],
 	authors: [{ name: "Austin" }],
-	manifest: "/manifest.json",
 	icons: {
 		icon: [
 			{ url: "/favicon.ico" },
