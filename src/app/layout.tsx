@@ -28,16 +28,25 @@ const lobster = Lobster({
 export const metadata: Metadata = {
 	title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 	description:
-		"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
+		"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
 	keywords: [
 		"AmyDay",
 		"Amy Taylor",
-		"personal",
-		"custom",
+		"Amy Rothchild",
+		"Mothers Day",
+		"custom Mothers Day site",
 		"AI companion",
 		"dark humor",
 		"special",
 		"digital experience",
+		"interactive gift",
+		"AI chat",
+		"personalized letter",
+		"compliment generator",
+		"animated surprise",
+		"digital mother's day gift",
+		"typewriter poem",
+		"hidden message",
 	],
 	authors: [{ name: "Austin" }],
 	icons: {
@@ -57,7 +66,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
+			"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
 		url: "https://amyday.vercel.app",
 		siteName: "AmyDay",
 		images: [
@@ -74,7 +83,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
+			"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
 		images: ["/amy-day-og-image.png"],
 	},
 };
