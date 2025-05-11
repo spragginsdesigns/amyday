@@ -10,11 +10,17 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 	const [displayedText, setDisplayedText] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isTypingComplete, setIsTypingComplete] = useState(false);
+	const [showProverbs, setShowProverbs] = useState(false);
 	const [hasStartedTyping, setHasStartedTyping] = useState(true); // Default to true to start typing immediately
 	const containerRef = useRef(null);
 
-	// Split the text into stanzas for poetic formatting
-	const stanzas = text.split("\n\n");
+	// Extract proverbs quote from the text
+	const mainTextAndProverbs = text.split('<div class="proverbs-quote">');
+	const mainText = mainTextAndProverbs[0];
+	const proverbsText = mainTextAndProverbs.length > 1 ? '<div class="proverbs-quote fade-in">' + mainTextAndProverbs[1] : "";
+
+	// Split the main text into stanzas for poetic formatting
+	const stanzas = mainText.split("\n\n");
 
 	useEffect(() => {
 		// Start typing immediately without waiting for view
@@ -23,18 +29,22 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 
 	useEffect(() => {
 		// If we have started typing and haven't finished
-		if (hasStartedTyping && currentIndex < text.length) {
+		if (hasStartedTyping && currentIndex < mainText.length) {
 			const timeout = setTimeout(() => {
 				// Add the next character to the displayed text
-				setDisplayedText((prev) => prev + text[currentIndex]);
+				setDisplayedText((prev) => prev + mainText[currentIndex]);
 				setCurrentIndex((prevIndex) => prevIndex + 1);
 			}, 50); // Typing speed - adjust as needed
 
 			return () => clearTimeout(timeout);
-		} else if (hasStartedTyping && currentIndex >= text.length) {
+		} else if (hasStartedTyping && currentIndex >= mainText.length) {
 			setIsTypingComplete(true);
+			// Show proverbs with a slight delay after typing is complete
+			setTimeout(() => {
+				setShowProverbs(true);
+			}, 1000);
 		}
-	}, [currentIndex, text, hasStartedTyping]);
+	}, [currentIndex, mainText, hasStartedTyping]);
 
 	// Format the displayed text with stanzas
 	const formattedDisplayedText = () => {
@@ -85,15 +95,16 @@ const TypewriterLetter: React.FC<TypewriterLetterProps> = ({ text }) => {
 
 			<div className="font-serif text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose text-ivory/90 poem-content">
 				{hasStartedTyping ? formattedDisplayedText() : null}
+				
+				{/* Proverbs quote with fade-in */}
+				{showProverbs && (
+					<div dangerouslySetInnerHTML={{ __html: proverbsText }} />
+				)}
 			</div>
 
 			{isTypingComplete && (
 				<div className="mt-8 sm:mt-10 flex flex-col items-center">
-					<div className="mt-4">
-						<span className="text-xs sm:text-sm text-blush italic px-3 py-1.5 sm:px-4 sm:py-2 border border-blush/20 rounded-full bg-neutral-800/30 shadow-md">
-							✨ A living tribute ✨
-						</span>
-					</div>
+					
 
 					{/* Signature */}
 					<div className="mt-6 text-center">

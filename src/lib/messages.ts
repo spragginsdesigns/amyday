@@ -26,12 +26,20 @@ And in God's eyes, that's the highest gift.
 You've shown me strength wrapped up in grace,
 A warrior's heart with a gentle face.
 And while the world may fail to see,
-God says, <b>"Well done. You walk with Me."</b>
+God says, <b>"Fear not, for I am with thee."</b>
 
 So pause today—breathe deep, be still,
 You are a wonder, and always will.
 Not just for what you do, but who you are:
-A radiant soul, a mother, God's star.`;
+A radiant soul, a mother, God's star.
+
+<div class="proverbs-quote">
+  <p>"She is clothed with strength and dignity,</p>
+  <p>And she laughs without fear of the future.</p>
+  <p>When she speaks, her words are wise,</p>
+  <p>And kindness is the rule when she gives instructions."</p>
+  <span class="verse-reference">- Proverbs 31:25-26</span>
+</div>`;
 
 // The hidden encouraging message that appears when user holds the button
 export const hiddenMessage = `Dear Amy,
