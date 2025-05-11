@@ -52,6 +52,20 @@ export const metadata: Metadata = {
 		statusBarStyle: "black-translucent",
 		title: "AmyDay",
 	},
+	openGraph: {
+		title: "AmyDay | A special experience created by Austin",
+		description:
+			"AmyDay is a custom-built application created by Austin for Amy, featuring a personal AI companion, special messages, and more.",
+		images: [
+			{
+				url: "/amy-day-og-image.png",
+				width: 1200,
+				height: 630,
+				alt: "AmyDay OG Image",
+			},
+		],
+		type: "website",
+	},
 };
 
 export const viewport: Viewport = {
