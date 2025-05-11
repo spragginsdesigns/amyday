@@ -26,13 +26,18 @@ const lobster = Lobster({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://amyday.vercel.app"),
 	title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 	description:
-		"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
+		"A special digital experience crafted by Austin Spraggins, just for Amy Taylor (Rothchild) of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
 	keywords: [
 		"AmyDay",
 		"Amy Taylor",
 		"Amy Rothchild",
+		"Amy Taylor Oakhurst",
+		"Amy Rothchild Oakhurst",
+		"Amy Taylor Fresno",
+		"Amy Rothchild Fresno",
 		"Mothers Day",
 		"custom Mothers Day site",
 		"AI companion",
@@ -48,7 +53,22 @@ export const metadata: Metadata = {
 		"typewriter poem",
 		"hidden message",
 	],
-	authors: [{ name: "Austin" }],
+	authors: [{ name: "Austin Spraggins" }],
+	applicationName: "AmyDay",
+	referrer: "origin-when-cross-origin",
+	alternates: {
+		canonical: "https://amyday.vercel.app",
+	},
+	manifest: "/site.webmanifest",
+	category: "personal",
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+		},
+	},
 	icons: {
 		icon: [
 			{ url: "/favicon.ico" },
@@ -66,12 +86,13 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
+			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor (Rothchild) of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
 		url: "https://amyday.vercel.app",
 		siteName: "AmyDay",
+		locale: "en_US",
 		images: [
 			{
-				url: "/amy-day-og-image.png",
+				url: "/amyday-ogimage-2.png",
 				width: 1200,
 				height: 630,
 				alt: "AmyDay: A tribute to the strongest woman I know.",
@@ -83,8 +104,8 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A unique digital Mother's Day experience for Amy Taylor, crafted by Austin. Features 'Dark Amy' a personal AI companion with a dark sense of humor, a heartfelt typewriter-style poem, an interactive compliment generator, a special animated gift revealing a hidden message, and more surprises.",
-		images: ["/amy-day-og-image.png"],
+			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor (Rothchild) of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
+		images: ["/amyday-ogimage-2.png"],
 	},
 };
 
