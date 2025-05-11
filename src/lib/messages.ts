@@ -8,10 +8,10 @@ You hold your ground with a lion's heart.
 God sees the work no one applauds
 The sleepless nights, the whispered prayers to God.
 
-Your love for Pierson, Presli, Pax shines bright,
-Through every tantrum, every sleepless night.
-You teach them grace, through joy and pain,
-Planting seeds that will not grow in vain.
+Your love for Pierson, Presli, and Pax shines through,
+In every hard moment, in all that you do.
+You lead them with grace, through both joy and the strain,
+Planting deep roots that will bloom through the rain.
 
 The courts may rage, the bills may climb,
 But your faith outlasts the weight of time.
