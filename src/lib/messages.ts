@@ -34,4 +34,11 @@ Not just for what you do, but who you are:
 A radiant soul, a mother, God's star.`;
 
 // The hidden encouraging message that appears when user holds the button
-export const hiddenMessage = `Amy, your strength in the face of hardship doesn’t just inspire me — it reshapes how I understand courage. You carry pain, faith, and humor all at once, and somehow still lead with love. Watching you walk through fire with grace has taught me that real beauty lives in resilience. You're not just surviving — you're becoming. And that journey, messy and honest as it is, makes you glow with something eternal. Please never forget: you are deeply valued, fiercely loved, and more radiant than you know.`;
+export const hiddenMessage = `Dear Amy,
+The way you show up every day for your kids, for others, and for God honestly amazes me. You wake up early, push yourself at the gym, take care of three little lives, and still make time for Lilly and anyone else who needs you.
+
+Your strength is not just in what you carry. It is in how you carry it. With love, faith, consistency, and quiet determination. Watching you walk through so much and still choose grace has changed the way I understand courage.
+
+You are not just getting through life. You are growing into the woman God made you to be. And it is beautiful.
+
+I hope you never forget how deeply valued you are. How fiercely loved you are. How fully seen you are. By God. And by me.`;
