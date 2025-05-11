@@ -26,16 +26,18 @@ const lobster = Lobster({
 });
 
 export const metadata: Metadata = {
-	title: "AmyDay | A special experience created by Austin",
+	title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 	description:
-		"AmyDay is a custom-built application created by Austin for Amy, featuring a personal AI companion, special messages, and more.",
+		"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
 	keywords: [
 		"AmyDay",
+		"Amy Taylor",
 		"personal",
 		"custom",
 		"AI companion",
 		"dark humor",
 		"special",
+		"digital experience",
 	],
 	authors: [{ name: "Austin" }],
 	icons: {
@@ -53,18 +55,27 @@ export const metadata: Metadata = {
 		title: "AmyDay",
 	},
 	openGraph: {
-		title: "AmyDay | A special experience created by Austin",
+		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"AmyDay is a custom-built application created by Austin for Amy, featuring a personal AI companion, special messages, and more.",
+			"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
+		url: "https://amyday.vercel.app",
+		siteName: "AmyDay",
 		images: [
 			{
 				url: "/amy-day-og-image.png",
 				width: 1200,
 				height: 630,
-				alt: "AmyDay OG Image",
+				alt: "AmyDay: A tribute to the strongest woman I know.",
 			},
 		],
 		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
+		description:
+			"A special digital experience crafted by Austin, just for Amy Taylor, featuring a personal AI companion, special messages, and more.",
+		images: ["/amy-day-og-image.png"],
 	},
 };
 
