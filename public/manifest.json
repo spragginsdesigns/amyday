@@ -1,6 +1,6 @@
 {
-	"name": "AMyDay",
-	"short_name": "AMyDay",
+	"name": "AmyDay",
+	"short_name": "AmyDay",
 	"icons": [
 		{
 			"src": "/web-app-manifest-192x192.png",

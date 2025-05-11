@@ -26,11 +26,11 @@ const lobster = Lobster({
 });
 
 export const metadata: Metadata = {
-	title: "AMyDay | A special experience created by Austin",
+	title: "AmyDay | A special experience created by Austin",
 	description:
-		"AMyDay is a custom-built application created by Austin for Amy, featuring a personal AI companion, special messages, and more.",
+		"AmyDay is a custom-built application created by Austin for Amy, featuring a personal AI companion, special messages, and more.",
 	keywords: [
-		"AMyDay",
+		"AmyDay",
 		"personal",
 		"custom",
 		"AI companion",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 	appleWebApp: {
 		capable: true,
 		statusBarStyle: "black-translucent",
-		title: "AMyDay",
+		title: "AmyDay",
 	},
 };
 
