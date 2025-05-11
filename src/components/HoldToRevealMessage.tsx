@@ -142,52 +142,29 @@ const HoldToRevealMessage = ({
 	const [showSparkles, setShowSparkles] = useState(false);
 
 	// Format the message with paragraph breaks at natural points
-	const formatMessageWithBreaks = (
-		message: string
-	): {
-		mobile: React.ReactNode[];
-		desktop: React.ReactNode[];
-	} => {
-		// Split the message into paragraphs (these will become columns on desktop)
-		const paragraphs = message
+	const formatMessageWithBreaks = (message: string): React.ReactNode => {
+		// Add line breaks at natural points
+		const formattedMessage = message
 			.replace(". You", ".\n\nYou")
 			.replace("grace has", "grace\nhas")
 			.replace("resilience.", "resilience.\n\n")
 			.replace("becoming.", "becoming.\n\n")
-			.replace("eternal.", "eternal.\n\n")
-			.split("\n\n");
+			.replace("eternal.", "eternal.\n\n");
 
-		// For mobile: render as regular paragraphs with better spacing
-		const mobileParagraphs = paragraphs.map((paragraph, index) => (
+		// Split into paragraphs and render them with proper spacing
+		return formattedMessage.split("\n\n").map((paragraph, index, array) => (
 			<p
-				key={`mobile-${index}`}
-				className={`mb-6 ${index === paragraphs.length - 1 ? "mb-0" : ""}`}
+				key={`p-${index}`}
+				className={`mb-6 ${index === array.length - 1 ? "mb-0" : ""}`}
 			>
-				{paragraph.split("\n").map((line, lineIndex) => (
-					<React.Fragment key={`mobile-${index}-${lineIndex}`}>
+				{paragraph.split("\n").map((line, lineIndex, lineArray) => (
+					<React.Fragment key={`line-${index}-${lineIndex}`}>
 						{line}
-						{lineIndex < paragraph.split("\n").length - 1 && <br />}
+						{lineIndex < lineArray.length - 1 && <br />}
 					</React.Fragment>
 				))}
 			</p>
 		));
-
-		// For desktop: render as columns
-		const desktopColumns = paragraphs.map((paragraph, index) => (
-			<div key={`desktop-${index}`} className="flex-1 px-4 min-w-[200px]">
-				{paragraph.split("\n").map((line, lineIndex) => (
-					<React.Fragment key={`desktop-${index}-${lineIndex}`}>
-						{line}
-						{lineIndex < paragraph.split("\n").length - 1 && <br />}
-					</React.Fragment>
-				))}
-			</div>
-		));
-
-		return {
-			mobile: mobileParagraphs,
-			desktop: desktopColumns,
-		};
 	};
 
 	// Clean up interval on unmount
@@ -396,12 +373,12 @@ const HoldToRevealMessage = ({
 									background: "rgba(30, 30, 46, 0.95)",
 									backdropFilter: "blur(12px)",
 									width: "100%",
-									maxWidth: "600px",
+									maxWidth: "700px",
 								}}
 							>
-								{/* Mobile layout (single column) */}
+								{/* Unified layout for both mobile and desktop */}
 								<motion.div
-									className="md:hidden text-base sm:text-lg leading-loose tracking-wide text-left pb-2"
+									className="text-base sm:text-lg md:text-xl leading-loose tracking-wide text-left pb-2 max-w-3xl mx-auto"
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									transition={{ delay: 0.3, duration: 0.5 }}
@@ -414,25 +391,7 @@ const HoldToRevealMessage = ({
 										fontWeight: 500,
 									}}
 								>
-									{formatMessageWithBreaks(hiddenMessage).mobile}
-								</motion.div>
-
-								{/* Desktop layout (multi-column) */}
-								<motion.div
-									className="hidden md:flex flex-row gap-8 text-lg lg:text-xl leading-loose tracking-wide"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									transition={{ delay: 0.3, duration: 0.5 }}
-									style={{
-										background: "linear-gradient(to right, #f9a8d4, #d8b4fe)",
-										backgroundClip: "text",
-										WebkitBackgroundClip: "text",
-										WebkitTextFillColor: "transparent",
-										textShadow: "0px 2px 4px rgba(0,0,0,0.3)",
-										fontWeight: 500,
-									}}
-								>
-									{formatMessageWithBreaks(hiddenMessage).desktop}
+									{formatMessageWithBreaks(hiddenMessage)}
 								</motion.div>
 
 								{/* Hint to show it's clickable */}
