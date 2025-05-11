@@ -86,7 +86,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor (Rothchild) of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
+			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
 		url: "https://amyday.vercel.app",
 		siteName: "AmyDay",
 		locale: "en_US",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "AmyDay: A special digital experience crafted just for Amy Taylor.",
 		description:
-			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor (Rothchild) of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
+			"A special digital experience crafted by Austin Spraggins, just for Amy Taylor of Oakhurst, CA. Discover a personal AI companion, heartfelt messages, and delightful surprises designed to make her day.",
 		images: ["/amyday-ogimage-2.png"],
 	},
 };
